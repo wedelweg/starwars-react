@@ -10,7 +10,7 @@ const FarGalaxy = () => {
             fetch(`${baseUrl}/v1/films/${episode}`)
                 .then((response) => response.json())
                 .then((data) => setText(data.opening_crawl))
-                .catch((error) => setText("Ошибка загрузки: " + error.message));
+                .catch((error) => setText("Loading error: " + error.message));
         }, 1000);
 
         return () => clearTimeout(timer);

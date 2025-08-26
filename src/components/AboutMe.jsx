@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { heroes } from "../utils/constants.jsx";
 
-const API_URL = "https://sw-info-api.herokuapp.com/v1/peoples/1"; // Люк Скайуокер
+const API_URL = "https://sw-info-api.herokuapp.com/v1/peoples/1";
 const CACHE_KEY = "aboutMeData";
-const CACHE_TIME = 24 * 60 * 60 * 1000; // 24 часа
+const CACHE_TIME = 24 * 60 * 60 * 1000;
 
 const AboutMe = () => {
     const [person, setPerson] = useState(null);
@@ -39,7 +39,7 @@ const AboutMe = () => {
             .catch((err) => setError(err.message));
     }, []);
 
-    if (error) return <p>Ошибка: {error}</p>;
+    if (error) return <p>Error: {error}</p>;
     if (!person) return <p>Loading...</p>;
 
     const hero = heroes.find((h) => h.name === person.name);
